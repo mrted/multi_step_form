@@ -80,6 +80,9 @@ button:hover {
 .step.finish {
   background-color: #04AA6D;
 }
+table, th, td {
+  border:1px solid black;
+}
 </style>
 <body>
     <form id="regForm" action="" method="post" enctype="multipart/form-data">
@@ -121,6 +124,22 @@ button:hover {
         <span class="step"></span>
     </div>
     </form>
+
+    <div style="margin:0 20em;">
+        <table style="width:100%">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Middle Name</th>
+            {% for customer in customers %}
+            <tr>
+                <td>{{customer.first_name}}</td>
+                <td>{{customer.last_name}}</td>
+                <td>{{customer.middle_name}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
 
 <script>
 var currentTab = 0; // Current tab is set to be the first tab (0)

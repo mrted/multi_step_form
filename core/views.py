@@ -20,5 +20,8 @@ def create_customer(request):
             messages.success(request, 'Customer created successfully')
         except:
             messages.error(request, 'Customer creation failed')
-    return render(request, 'create-customer.html')
-
+    
+    #list all customers
+    customers = Customer.objects.all().order_by('-created_at')
+    context={'customers': customers}
+    return render(request, 'create-customer.html', context)
